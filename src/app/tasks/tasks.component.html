@@ -1,0 +1,60 @@
+<div class="task-form">
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Task toDo</mat-label>
+    <input (keydown.enter)="addTask()" matInput [(ngModel)]="taskName" placeholder="Ex. Study Math">
+  </mat-form-field>
+
+  <button
+    (click)="addTask()"
+    mat-raised-button 
+    type="submit">
+    Add Task
+  </button>
+
+</div>
+
+<section class="tasks-item">
+  <div *ngFor="let task of todoItems">
+
+    <div [ngClass]='{"task-card-completed": task.isDone}' class="item-card">
+
+      <button 
+        (click)="completeTask(task)" 
+        [ngClass]="{'task-default-save': !task.isDone, 'task-checked': task.isDone}"
+        class="card-button-done" mat-mini-fab>
+        
+        <mat-icon>{{task.isDone ? 'task_alt' : 'done'}}</mat-icon>
+
+      </button>
+
+      <input 
+        [ngClass]="{'task-default-input': !task.editable,
+                    'task-edit-input': task.editable,
+                    'task-done-input': task.isDone}" 
+        [(ngModel)]="task.name" [readonly]="!task.editable"
+      >
+
+      <div class="card-buttons">
+        <div>
+          <button (click)="deleteTask(task)" mat-mini-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button 
+            [ngClass]="{'task-default': !task.editable,
+                        'task-checked': task.editable}"
+            (click)="editTask(task)"
+            mat-mini-fab>
+
+            <mat-icon>{{task.editable ? 'save' : 'edit'}}</mat-icon>
+
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+.container {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+
+    .header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+
+        .menu-buttons button {
+            margin: 0 10px;
+        }
+    }
+
+    .footer{
+        display: flex;
+        place-content: center center;
+    }
+
+}

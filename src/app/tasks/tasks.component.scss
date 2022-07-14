@@ -1,0 +1,74 @@
+$green-sucess: green;
+$white-default: #f5f5f5;
+$purple-default: #3F51B5;
+$white-completed: silver;
+
+.task-form {
+    padding-top:20px ;
+    display: flex;
+    flex-direction: column;
+    place-content: center center;
+    align-items: center;
+}
+
+.task-default {
+    background-color: $purple-default;
+    color: $white-default;
+}
+
+.task-default-save {
+    background-color:transparent;
+    color: black;
+}
+
+.task-default-input{
+    border: none;
+    background-color: $white-default;
+}
+
+.task-checked {
+    background-color: $green-sucess;
+    color: $white-default;
+}
+
+.task-edit-input{
+    background-color: $white-default;
+}
+
+.task-done-input{
+    text-decoration: line-through;
+    color: $white-completed;
+}
+
+.tasks-item {
+    display: grid;
+    place-content: center center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, 230px);
+    
+
+    .item-card {
+        display: flex;
+        flex-direction: column;
+        place-content: center center;
+        align-items: center;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        background-color: $white-default;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        
+        .card-button-done {
+            margin-bottom: 1em;
+        }
+
+        .card-buttons {
+            display: flex;
+            padding: 1em;
+        
+            div {
+                padding: 5px;
+            }
+        }
+    }
+}
